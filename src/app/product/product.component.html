@@ -1,1 +1,11 @@
-<p>product works!</p>
+<div>
+  <h1>Ini adalah metode {{dataValue}}</h1>
+  <p [style.color]="'red'">Teks ini berwarna merah</p>
+  <p [style.fontSize]="16">Teks ini berukuran lebih besar</p>
+</div>
+
+<div>
+  <button (click)="increment()">Tambah</button>
+  <button (click)="decrement()">Kurang</button>
+  <p>Sudah {{clickCounter}} klik</p>
+</div>

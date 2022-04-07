@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+  @Input() dataValue!: string;
+  @Input() clickCounter!: number;
+  @Output() clickChanger = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  increment() {
+    this.clickCounter++;
+    this.clickChanger.emit(this.clickCounter);
+  }
+
+  decrement() {
+    this.clickCounter--;
+    this.clickChanger.emit(this.clickCounter);
   }
 
 }
