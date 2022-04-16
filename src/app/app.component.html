@@ -1,4 +1,17 @@
 <div>
-  <h2>Component Directive</h2>
-  <p appHighlight>Background ini berwarna kuning.</p>
+  <h2>Component Directive - Mandiri</h2>
+  <p appHighlight>Background color ini berwarna otomatis</p>
+
+  <hr>
+
+  <h2>Component Directive - Host Listener</h2>
+  <p appHighlight2>Background color ini berubah warna saat hover</p>
+
+  <hr>
+
+  <h2>Component Directive - Value</h2>
+  <input (click)="color = 'yellow'" name="color" type="radio">Kuning
+  <input (click)="color = 'violet'" name="color" type="radio">Violet
+  <input (click)="color = 'lightgreen'" name="color" type="radio">Hijau
+  <p [appHightlight3]="color">Efek warna di sini sesuai radio button yang dipilih</p>
 </div>

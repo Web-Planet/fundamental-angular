@@ -13,6 +13,7 @@ export class AppComponent {
   clickTwoWayBinding = 20;
   inputValue!: string;
   myBirthday = new Date(2000, 2, 12);
+  color!: string;
 
   onChangeInput(event: any) {
     alert(event.target.value);
