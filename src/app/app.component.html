@@ -15,3 +15,46 @@
   <input (click)="color = 'lightgreen'" name="color" type="radio">Hijau
   <p [appHightlight3]="color">Efek warna di sini sesuai radio button yang dipilih</p>
 </div>
+
+<hr>
+
+<div>
+  <h2>Structural Directive</h2>
+  <h3>ngIf</h3>
+  <button (click)="showMessage()">Klik untuk menampilkan pesan</button>
+  <p *ngIf="!isHide">Hi There! have a nice day!</p>
+
+  <hr>
+
+  <h3>ngFor</h3>
+  <ul *ngFor="let fruit of fruits;">
+    <li>{{fruit | uppercase}}</li>
+  </ul>
+
+  <hr>
+
+  <h3>ngSwitch</h3>
+  <input [(ngModel)]="number" name="numberField" type="text">
+  <div [ngSwitch]="number">
+    <div *ngSwitchCase="'0'">Nol</div>
+    <div *ngSwitchCase="'1'">Satu</div>
+    <div *ngSwitchCase="'2'">Dua</div>
+    <div *ngSwitchCase="'3'">Tiga</div>
+    <div *ngSwitchCase="'4'">Empat</div>
+    <div *ngSwitchDefault>Tidak dalam case yang sudah ditentukan</div>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <h2>Attribute Directive</h2>
+  <h3>ngClass</h3>
+
+  <p [ngClass]="!isHide ? 'red' : 'green'">Background ini berganti warna hijau jika ada teks yang tampil dari button</p>
+
+  <hr>
+
+  <h3>ngStyle</h3>
+  <p [ngStyle]="{color: 'blue', fontWeight: 'bold'}">Teks ini bold dan berwarna biru</p>
+</div>

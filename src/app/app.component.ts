@@ -14,6 +14,9 @@ export class AppComponent {
   inputValue!: string;
   myBirthday = new Date(2000, 2, 12);
   color!: string;
+  isHide = true;
+  fruits = ['mangga', 'pisang', 'apel', 'jeruk'];
+  number!: number;
 
   onChangeInput(event: any) {
     alert(event.target.value);
@@ -29,5 +32,9 @@ export class AppComponent {
 
   showAlert(text: string) {
     alert(text);
+  }
+
+  showMessage() {
+    this.isHide = !this.isHide;
   }
 }
