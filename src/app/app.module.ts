@@ -8,6 +8,7 @@ import {CounterEventComponent} from './counter-event/counter-event.component';
 import {CounterTwoWayBindingComponent} from './counter-two-way-binding/counter-two-way-binding.component';
 import {FormsModule} from '@angular/forms';
 import {PangkatPipe} from './pangkat.pipe';
+import {HighlightDirective} from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {PangkatPipe} from './pangkat.pipe';
     ProductComponent,
     CounterEventComponent,
     CounterTwoWayBindingComponent,
-    PangkatPipe
+    PangkatPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
