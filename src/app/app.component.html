@@ -27,9 +27,18 @@
   <hr>
 
   <h3>ngFor</h3>
-  <ul *ngFor="let fruit of fruits;">
-    <li>{{fruit | uppercase}}</li>
-  </ul>
+  <table>
+    <tr>
+      <th>Nama Buah</th>
+      <th>Warna Buah</th>
+      <th>Rasa</th>
+    </tr>
+    <tr *ngFor="let fruit of fruits">
+      <td>{{fruit.fruit_name}}</td>
+      <td>{{fruit.fruit_color}}</td>
+      <td>{{fruit.fruit_taste}}</td>
+    </tr>
+  </table>
 
   <hr>
 
