@@ -1,60 +1,66 @@
 <div>
-  <h1>Interpolation String</h1>
-  <h3>{{titleHeader}}</h3>
+  <h2>Component Directive - Mandiri</h2>
+  <p appHighlight>Background teks ini berwarna biru secara otomatis</p>
+
+  <h2>Component Directive - Host Listener</h2>
+  <p appHighlight2>Background teks ini berubah warna ketika di-hover</p>
+
+  <h2>Component Directive - Passing Data Value</h2>
+  <input (click)="color = 'violet'" name="color" type="radio">Violet
+  <input (click)="color = 'blue'" name="color" type="radio">Blue
+  <input (click)="color = 'red'" name="color" type="radio">Red
+  <p [appHighlight3]="color">Background teks ini berubah sesuai input radio button</p>
 </div>
 
 <hr>
 
 <div>
-  <h1>Property Binding</h1>
-  <app-product [dataValue]="passingData"></app-product>
-</div>
+  <h2>Structural Directive</h2>
+  <h3>ngIf</h3>
+  <button (click)="onButtonClick()">Klik untuk menampilkan teks</button>
+  <p *ngIf="!isHide">Hi! have a nice day!</p>
 
-<hr>
+  <h3>ngFor</h3>
+  <table>
+    <tr>
+      <th>Nama Buah</th>
+      <th>Warna</th>
+      <th>Rasa</th>
+    </tr>
+    <tr *ngFor="let fruit of fruits">
+      <td>{{fruit.fruit_name}}</td>
+      <td>{{fruit.fruit_color}}</td>
+      <td>{{fruit.fruit_taste}}</td>
+    </tr>
+  </table>
 
-<div>
-  <h1>Event Binding</h1>
-  <label>
-    <input
-      (change)="onChangeInput($event)"
-      type="text">
-  </label>
-  <button (click)="onClickButton()">Click me to show alert!</button>
-
-  <div>
-    <app-counter-event (clickChanger)="clickChange($event)" [clickValue]="clickDefault"></app-counter-event>
+  <h3>ngSwitch</h3>
+  <input [(ngModel)]="number" type="text">
+  <div [ngSwitch]="number">
+    <div *ngSwitchCase="0">Nol</div>
+    <div *ngSwitchCase="1">Satu</div>
+    <div *ngSwitchCase="2">Dua</div>
+    <div *ngSwitchCase="3">Tiga</div>
+    <div *ngSwitchCase="4">Empat</div>
+    <div *ngSwitchCase="5">Lima</div>
+    <div *ngSwitchCase="6">Enam</div>
+    <div *ngSwitchDefault>Tidak ada dalam daftar</div>
   </div>
 </div>
 
 <hr>
 
 <div>
-  <h1>Two Way Binding</h1>
-  <label>
-    <input
-      [(ngModel)]="inputValue"
-      type="text">
-  </label>
-  <p>{{inputValue}}</p>
-  <app-counter-two-way-binding [(data)]="clickTwoWayBinding"></app-counter-two-way-binding>
-</div>
+  <h2>Attribute Directive</h2>
+  <h3>ngClass</h3>
+  <p [ngClass]="isHide ? 'hidden' : 'shown'">Teks ini berubah warna background nya menjadi lightblue ketika button ngIf
+    ditekan</p>
 
-<hr>
-
-<div>
-  <h1>Pipes</h1>
-  <p>Tanggal lahir saya adalah: {{myBirthday | date}}</p>
-  <p>Tanggal lahir saya yang sudah dicustom adalah: {{myBirthday | date: 'd MMM yyyy' | uppercase}}</p>
-  <p>Sisa uang saya adalah {{4000000 | currency:'USD'}}</p>
-  <p>10 pangkat 3 adalah {{10 | pangkat:3}}</p>
-</div>
-
-<hr>
-
-<div>
-  <h1>Template Reference Variable</h1>
-  <label>
-    <input #inputParameter type="text">
-  </label>
-  <button (click)="showAlert(inputParameter.value)">Show input text!</button>
+  <h3>ngStyle</h3>
+  <p [ngStyle]="{
+  fontWeight: 'bold',
+  fontSize: '24px',
+  backgroundColor: 'yellow',
+  width: 'fit-content'
+  }">Halo apa kabar</p>
 </div>
