@@ -1,15 +1,20 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges} from '@angular/core';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnChanges {
   @Input() dataValue!: string;
-  constructor() { }
+  hitValue: number = 0;
 
-  ngOnInit(): void {
+  constructor() {
+  }
+
+  ngOnChanges() {
+    console.log('ngOnChanges terpanggil');
+    this.hitValue++;
   }
 
 }

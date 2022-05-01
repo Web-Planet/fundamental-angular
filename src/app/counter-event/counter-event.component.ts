@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-counter-event',
@@ -6,23 +6,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./counter-event.component.scss']
 })
 export class CounterEventComponent implements OnInit {
-  @Input() clickValue!: number;
-  @Output() clickChanger = new EventEmitter<number>();
+  @Input() dataValue!: string;
+  hitValue = 0;
 
-  constructor() {
+  ngOnInit() {
+    console.log('ngOnInit terpanggil');
+    this.hitValue++;
   }
-
-  ngOnInit(): void {
-  }
-
-  increment() {
-    this.clickValue++;
-    this.clickChanger.emit(this.clickValue);
-  }
-
-  decrement() {
-    this.clickValue--;
-    this.clickChanger.emit(this.clickValue);
-  }
-
 }

@@ -1,30 +1,34 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, DoCheck} from '@angular/core';
 
 @Component({
   selector: 'app-counter-two-way-binding',
   templateUrl: './counter-two-way-binding.component.html',
   styleUrls: ['./counter-two-way-binding.component.scss']
 })
-export class CounterTwoWayBindingComponent implements OnInit {
-  @Input() data!: number;
-  @Output() dataChange = new EventEmitter<number>();
+export class CounterTwoWayBindingComponent implements DoCheck {
+  fruits: string[] = ['Mangga'];
+  dataComparator!: string;
+  hitValue = 0;
 
-  constructor() {
+  constructor(private detector: ChangeDetectorRef) {
+    this.detector.detach(); // Untuk pemberian hak melakukan pengecekan di component ini
+
+    setTimeout(() => {
+      this.dataComparator = 'Alpukat';
+      this.fruits.push('Semangka');
+    }, 3000);
+
+    setTimeout(() => {
+      this.fruits.push('Alpukat');
+      detector.markForCheck();
+    }, 5000);
   }
 
-  ngOnInit(): void {
-  }
-
-  inc() {
-    this.recalculate(+1);
-  }
-
-  dec() {
-    this.recalculate(-1);
-  }
-
-  recalculate(delta: number) {
-    this.data = this.data + delta;
-    this.dataChange.emit(this.data);
+  ngDoCheck() {
+    this.hitValue++;
+    console.log(this.fruits);
+    if (this.fruits[this.fruits.length - 1] !== this.dataComparator) {
+      this.detector.detectChanges();
+    }
   }
 }

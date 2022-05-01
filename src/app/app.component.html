@@ -1,66 +1,17 @@
-<div>
-  <h2>Component Directive - Mandiri</h2>
-  <p appHighlight>Background teks ini berwarna biru secara otomatis</p>
-
-  <h2>Component Directive - Host Listener</h2>
-  <p appHighlight2>Background teks ini berubah warna ketika di-hover</p>
-
-  <h2>Component Directive - Passing Data Value</h2>
-  <input (click)="color = 'violet'" name="color" type="radio">Violet
-  <input (click)="color = 'blue'" name="color" type="radio">Blue
-  <input (click)="color = 'red'" name="color" type="radio">Red
-  <p [appHighlight3]="color">Background teks ini berubah sesuai input radio button</p>
-</div>
-
+<app-product [dataValue]="fruits"></app-product>
 <hr>
-
-<div>
-  <h2>Structural Directive</h2>
-  <h3>ngIf</h3>
-  <button (click)="onButtonClick()">Klik untuk menampilkan teks</button>
-  <p *ngIf="!isHide">Hi! have a nice day!</p>
-
-  <h3>ngFor</h3>
-  <table>
-    <tr>
-      <th>Nama Buah</th>
-      <th>Warna</th>
-      <th>Rasa</th>
-    </tr>
-    <tr *ngFor="let fruit of fruits">
-      <td>{{fruit.fruit_name}}</td>
-      <td>{{fruit.fruit_color}}</td>
-      <td>{{fruit.fruit_taste}}</td>
-    </tr>
-  </table>
-
-  <h3>ngSwitch</h3>
-  <input [(ngModel)]="number" type="text">
-  <div [ngSwitch]="number">
-    <div *ngSwitchCase="0">Nol</div>
-    <div *ngSwitchCase="1">Satu</div>
-    <div *ngSwitchCase="2">Dua</div>
-    <div *ngSwitchCase="3">Tiga</div>
-    <div *ngSwitchCase="4">Empat</div>
-    <div *ngSwitchCase="5">Lima</div>
-    <div *ngSwitchCase="6">Enam</div>
-    <div *ngSwitchDefault>Tidak ada dalam daftar</div>
-  </div>
-</div>
-
+<app-counter-event [dataValue]="fruits"></app-counter-event>
 <hr>
-
-<div>
-  <h2>Attribute Directive</h2>
-  <h3>ngClass</h3>
-  <p [ngClass]="isHide ? 'hidden' : 'shown'">Teks ini berubah warna background nya menjadi lightblue ketika button ngIf
-    ditekan</p>
-
-  <h3>ngStyle</h3>
-  <p [ngStyle]="{
-  fontWeight: 'bold',
-  fontSize: '24px',
-  backgroundColor: 'yellow',
-  width: 'fit-content'
-  }">Halo apa kabar</p>
-</div>
+<app-counter-two-way-binding></app-counter-two-way-binding>
+<hr>
+<app-child1></app-child1>
+<hr>
+<app-anak1></app-anak1>
+<hr>
+<app-child3></app-child3>
+<hr>
+<app-anak3></app-anak3>
+<hr>
+<h2>ngOnDestroy example</h2>
+<button (click)="onButtonClicked()">Click untuk hancurkan teks di bawah</button>
+<p *ngIf="destroyAble" appDestroy>Goobye, im leaving</p>

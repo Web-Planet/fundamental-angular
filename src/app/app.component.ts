@@ -1,42 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {Data} from './data';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  color!: string;
-  isHide = true;
-  number!: number;
-  fruits: Data[] = [{
-    fruit_name: '',
-    fruit_color: '',
-    fruit_taste: ''
-  }];
+export class AppComponent {
+  fruits = 'Apel';
+  destroyAble = true;
 
-  onButtonClick() {
-    this.isHide = !this.isHide;
+  constructor() {
+    setTimeout(() => {
+      this.fruits = 'Pisang';
+    }, 3000);
   }
 
-  ngOnInit() {
-    this.fruits = [
-      {
-        fruit_name: 'Apel',
-        fruit_color: 'Merah',
-        fruit_taste: 'Manis'
-      },
-      {
-        fruit_name: 'Pisang',
-        fruit_color: 'Kuning',
-        fruit_taste: 'Manis'
-      },
-      {
-        fruit_name: 'Jeruk',
-        fruit_color: 'Jingga',
-        fruit_taste: 'Asam'
-      }
-    ];
+  onButtonClicked() {
+    this.destroyAble = !this.destroyAble;
   }
 }
